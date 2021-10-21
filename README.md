@@ -38,7 +38,7 @@ This is the report for two day workshop on
     - http://ngspice.sourceforge.net/
 
 
-- Magic - For Layout Design
+- Magic - For Layout Design 
     - http://opencircuitdesign.com/magic/
 
 
