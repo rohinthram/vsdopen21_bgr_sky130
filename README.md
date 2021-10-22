@@ -3,7 +3,7 @@
 
 
 ![AIM](/assets/aim_banner.png)
-![BGR](/assets/bgr.png)
+![BGR Umbrella](/assets/pre_layout/bgr_umbrella_curve_with_ideal_opamp.png)
 
 This is the report for two day workshop on 
 "Analog Bandgap IP design using Sky130 PDK"
@@ -21,6 +21,7 @@ This is the report for two day workshop on
 - [Acknowledgements](#Acknowledgements)
 
 # Theory
+![BGR](/assets/bgr.png)
 - Requirement of *reference voltage* independent of 
     - Process
     - Supply Voltage
@@ -43,6 +44,7 @@ This is the report for two day workshop on
         - Self-biased current mirror
         - Reference branch circuit
         - Start-up circuit
+            - Zero current biasing to desired biasing
 
  ** Self Biased Current Mirror Based BGR
 
@@ -77,10 +79,10 @@ This is the report for two day workshop on
     - https://github.com/google/skywater-pdk-libs-sky130_fd_pr
 
 # Pre Layout Simulation
-## CTAT Circuit
 
-![PTAT Plot](/assets/pre_layout/ctat.png)
-![PTAT Plot](/assets/pre_layout/ctat_slope.png)
+## CTAT Circuit
+![CTAT Plot](/assets/pre_layout/ctat_i.png)
+![CTAT Plot](/assets/pre_layout/ctat_slope.png)
 
 ## PTAT Circuit
 ![PTAT](/assets/ptat_ckt.png)
@@ -95,15 +97,41 @@ This is the report for two day workshop on
 
 
 ## BGR Circuit with Ideal Opamp
+![BGR Plot](/assets/pre_layout/bgr_with_ideal_opamp.png)
 
 ## BGR Circuit with Self Biased Current Mirror(SBCM)
 
 
 # Layout Design Using Magic
+![BGR](/assets/layout/bgr_top.png)
+
+- Points to note
+    - Design of resistor involves 4 dummy resistors to make circuit symmetric and stable
+    - Use of gauard ring
+    - Use of many dummy pnp bjts
+
+The subcells used for the design are
+- PNP
+![](/assets/layout/pnp.png)
+- NFETs
+![](/assets/layout/nfets.png)
+- PFETs
+![](/assets/layout/pfets.png)
+- Resistors
+![](/assets/layout/resistors.png)
+- Starter NFET
+![](/assets/layout/starter_nfet.png)
+
 
 # Post Layout Simulation
 
 # LVS Check using Netgen
+- Note: Remove parasitics during LVS or else LVS will fail
+
+To do lvs in netgen window execute
+```
+lvs pre_layout.spice post_layout.spice <netgen_rule.tcl>
+```
 
 # Report By
 - R.V.Rohinth Ram
