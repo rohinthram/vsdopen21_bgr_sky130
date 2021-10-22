@@ -16,6 +16,7 @@ This is the report for two day workshop on
 - [Pre Layout Simulations](#Pre-Layout-Simulations)
 - [Layout Design Using Magic](#Layout-Design-Using-Magic)
 - [Post Layout Simulations](#Post-Layout-Simulations)
+- [LVS Check using Netgen](#LVS-Check-using-Netgen)
 - [Report By](#Report-By)
 - [Acknowledgements](#Acknowledgements)
 
@@ -46,8 +47,12 @@ This is the report for two day workshop on
  ** Self Biased Current Mirror Based BGR
 
  # Specification
- - Target
 ![Spec](assets/spec.png)
+
+# Model Used
+![](assets/device_datasheet_1.png)
+![](assets/device_datasheet_2.png)
+
 
 # Circuit
 ![Circuit](assets/circuit.png)
@@ -65,10 +70,40 @@ This is the report for two day workshop on
 - Magic - For Layout Design 
     - http://opencircuitdesign.com/magic/
 
+- Netgen - For LVS (Layout vs Schematic)
+    - http://opencircuitdesign.com/netgen/
 
-# PTAT Circuit
+- Skywater 130nm PDK
+    - https://github.com/google/skywater-pdk-libs-sky130_fd_pr
+
+# Pre Layout Simulation
+## CTAT Circuit
+
+![PTAT Plot](/assets/pre_layout/ctat.png)
+![PTAT Plot](/assets/pre_layout/ctat_slope.png)
+
+## PTAT Circuit
+![PTAT](/assets/ptat_ckt.png)
+- PTAT is achieved by subracting two different CTATs with different slopes
+![PTAT Plot](/assets/pre_layout/ptat.png)
+![PTAT Plot](/assets/pre_layout/ptat_slope.png)
 
 
+## Self Biased Current Mirror
+
+## Start-up Circuit
+
+
+## BGR Circuit with Ideal Opamp
+
+## BGR Circuit with Self Biased Current Mirror(SBCM)
+
+
+# Layout Design Using Magic
+
+# Post Layout Simulation
+
+# LVS Check using Netgen
 
 # Report By
 - R.V.Rohinth Ram
