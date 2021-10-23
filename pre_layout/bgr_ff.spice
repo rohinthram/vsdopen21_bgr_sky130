@@ -1,4 +1,4 @@
-*BGR Circuit with SBCM Typical corner
+*BGR Circuit with SBCM fast-fast corner
 
 .lib "../sky130_fd_pr/models/sky130.lib.spice ff"
 .include "../sky130_fd_pr/models/sky130_fd_pr__model__pnp.model.spice"

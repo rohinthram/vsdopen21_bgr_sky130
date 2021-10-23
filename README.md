@@ -31,22 +31,42 @@ This is the report for two day workshop on
 - Typical Temperature coefficient : 10-50 ppm/&deg;C
 - Typical Power Supply Rejection : 40-60 db 
 
-## Introduction to BGR
+## Introduction to Bandgap Reference(BGR)
 - what is BGR
 - why BGR
 - Applications
-- Principle
-    - CTAT (Complementary to Absolute Temperature) circuit compensates PTAT(Proportional to Absolute Temperature)
-- Types
-- Components
-    - CTAT
-    - PTAT
-    - Self-biased current mirror
-    - Reference branch circuit
-    - Start-up circuit
-        - Zero current biasing to desired biasing
+    - Low Dropout Regulator
+    - DC to DC buck converters
+    - ADC
+    - DAC
 
-** Self Biased Current Mirror Based BGR
+## Principle 
+**CTAT compensates PTAT**
+<br/>
+<br/>
+CTAT - Complementary to Absolute Temperature \
+PTAT - Proportional to Absolute Temperature 
+
+## Types
+- Architecture wise
+    - Using self-biased current mirror
+    - Using OpAmp
+
+- Application wise
+    - Low voltage BGR
+    - Low power BGR
+    - High PSRR(Power Supply Rejection Ratio) and low noise BGR
+    - Curvature compensated BGR
+
+## Components
+- CTAT
+- PTAT
+- Self-biased current mirror
+- Reference branch circuit
+- Start-up circuit
+    - Zero current biasing to desired biasing
+
+** Circuit designed in this workshop: *Self Biased Current Mirror Based BGR*
 
  # Specification
 ![Spec](assets/spec.png)
@@ -134,6 +154,7 @@ This is the report for two day workshop on
 
 # Circuit
 ![Circuit](assets/circuit.png)
+## Design
 
 
 # Open-Source-Tools-Used
@@ -157,6 +178,8 @@ This is the report for two day workshop on
 # Pre Layout Simulation
 
 ## CTAT Circuit
+![PTAT](/assets/ctat_ckt.png)
+
 ![CTAT Plot](/assets/pre_layout/ctat_i.png)
 ![CTAT Plot](/assets/pre_layout/ctat_slope.png)
 
@@ -168,14 +191,41 @@ This is the report for two day workshop on
 
 
 ## Self Biased Current Mirror
+![SBCM](/assets/sbcm_ckt.png)
+
+## Reference Branch Circuit
+![Ref Branch](/assets/ref_branch_ckt.png)
 
 ## Start-up Circuit
-
+![Start-up Circuit](/assets/startup_ckt.png)
 
 ## BGR Circuit with Ideal Opamp
 ![BGR Plot](/assets/pre_layout/bgr_with_ideal_opamp.png)
 
 ## BGR Circuit with Self Biased Current Mirror(SBCM)
+- Typical corner
+![BGR TT](/assets/pre_layout/bgr_tt.png)
+
+    - Currents
+        ![BGR TT](/assets/pre_layout/bgr_tt_i.png)
+    - Voltages
+        ![BGR TT](/assets/pre_layout/bgr_tt_v.png)
+
+- Fast-fast corner
+![BGR FF](/assets/pre_layout/bgr_ff.png)
+
+    - Currents
+        ![BGR FF](/assets/pre_layout/bgr_ff_i.png)
+    - Voltages
+        ![BGR FF](/assets/pre_layout/bgr_ff_v.png)
+
+- Slow-slow corner
+![BGR SS](/assets/pre_layout/bgr_ss.png)
+
+    - Currents
+        ![BGR TT](/assets/pre_layout/bgr_ss_i.png)
+    - Voltages
+        ![BGR TT](/assets/pre_layout/bgr_ss_v.png)
 
 
 # Layout Design Using Magic
