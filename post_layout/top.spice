@@ -1,0 +1,40 @@
+** BGR Circuit using SBCM
+
+.include sub_ckt.spice
+
+Xpfets_0 net1 vref net2 net6 vdd pfets
+Xstarternfet_0 net6 gnd starternfet
+Xnfets_0 net1 qp1 gnd rp1 net2 nfets
+Xresbank_0 gnd vref qp2 qp3 rp1 resbank
+Xpnp10_0 qp1 qp2 qp3 gnd pnp10
+
+C1 rp1 net1 4.06fF
+C2 vdd net1 15.65fF
+C4 qp1 net2 2.02fF
+C7 net2 net1 2.37fF
+C8 qp1 vref 5.85fF
+C9 rp1 qp2 9.69fF
+C10 net6 vdd 11.97fF
+C12 rp1 net2 14.93fF
+C13 vref net1 13.67fF
+C14 qp1 net1 11.22fF
+C15 qp3 qp1 13.88fF
+C17 vref vdd 5.97fF
+C19 qp1 vdd 18.84fF
+C20 net6 net2 16.12fF
+C21 net1 gnd 27.46fF
+C23 vdd gnd 127.89fF
+
+
+********************** Biasing
+v1 vdd gnd 2
+
+*.tran 5n 10u
+.dc	temp	-40	125	5
+
+.control
+run
+plot v(vref)
+.endc
+
+.end

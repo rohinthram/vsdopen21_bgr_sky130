@@ -155,7 +155,8 @@ PTAT - Proportional to Absolute Temperature
 # Circuit
 ![Circuit](assets/circuit.png)
 ## Design
-
+![](/assets/design_1.jpg)
+![](/assets/design_2.jpg)
 
 # Open-Source-Tools-Used
 
@@ -228,6 +229,14 @@ PTAT - Proportional to Absolute Temperature
         ![BGR TT](/assets/pre_layout/bgr_ss_v.png)
 
 
+Note: include both of below files for proper simulation
+```
+.lib "sky130_fd_pr/models/sky130.lib.spice tt"
+
+.include "sky130_fd_pr/models/sky130_fd_pr__model__pnp.model.spice"
+
+```
+
 # Layout Design Using Magic
 ![BGR](/assets/layout/bgr_top.png)
 
@@ -250,6 +259,19 @@ The subcells used for the design are
 
 
 # Post Layout Simulation
+- Temperature sweep
+![BGR temp](/assets/post_layout/bgr_temp.png)
+
+- Transient analysis
+![](/assets/post_layout/bgr_tran_vref.png)
+![](/assets/post_layout/bgr_tran_v.png)
+
+Only Typical corner is simulated
+other corners can be simulated by changing the library imported, as an example
+- For fast-fast corner
+```
+.lib "sky130_fd_pr/models/sky130.lib.spice ff"
+```
 
 # LVS Check using Netgen
 - Note: Remove parasitics during LVS or else LVS will fail
