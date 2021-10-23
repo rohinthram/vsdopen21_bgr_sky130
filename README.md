@@ -31,30 +31,106 @@ This is the report for two day workshop on
 - Typical Temperature coefficient : 10-50 ppm/&deg;C
 - Typical Power Supply Rejection : 40-60 db 
 
-- Introduction to BGR
-    - what is BGR
-    - why BGR
-    - Applications
-    - Principle
-        - CTAT (Complementary to Absolute Temperature) circuit compensates PTAT(Proportional to Absolute Temperature)
-    - Types
-    - Components
-        - CTAT
-        - PTAT
-        - Self-biased current mirror
-        - Reference branch circuit
-        - Start-up circuit
-            - Zero current biasing to desired biasing
+## Introduction to BGR
+- what is BGR
+- why BGR
+- Applications
+- Principle
+    - CTAT (Complementary to Absolute Temperature) circuit compensates PTAT(Proportional to Absolute Temperature)
+- Types
+- Components
+    - CTAT
+    - PTAT
+    - Self-biased current mirror
+    - Reference branch circuit
+    - Start-up circuit
+        - Zero current biasing to desired biasing
 
- ** Self Biased Current Mirror Based BGR
+** Self Biased Current Mirror Based BGR
 
  # Specification
 ![Spec](assets/spec.png)
 
 # Model Used
-![](assets/device_datasheet_1.png)
-![](assets/device_datasheet_2.png)
+- MOSFET
+<table>
+    <tr>
+        <td></td>
+        <td>NFET</td>
+        <td>PFET</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>LVT</td>
+        <td>LVT</td>
+    </tr>
+    <tr>
+        <td>Voltage</td>
+        <td>1.8V</td>
+        <td>1.8V</td>
+    </tr>
+    <tr>
+        <td>Threshold Voltage</td>
+        <td>~0.4V</td>
+        <td>~0.6V</td>
+    </tr>
+    <tr>
+        <td>Name of Model</td>
+        <td>sky130_fd_pr__nfet_01v8_lvt</td>
+        <td>sky130_fd_pr__pfet_01v8_lvt</td>
+    </tr>
+</table>
 
+
+
+- BJT
+<table>
+    <tr>
+        <td></td>
+        <td>PNP</td>
+    </tr>
+    <tr>
+        <td>Current Rating</td>
+        <td>1&mu;A-10&mu;A/&mu;<sup>2</sup></td>
+    </tr>
+    <tr>
+        <td>Beta</td>
+        <td>~12</td>
+    </tr>
+    <tr>
+        <td>Emitter Area</td>
+        <td>11.56 &mu;m<sup>2</sup></td>
+    </tr>
+    <tr>
+        <td>Name of Model</td>
+        <td>sky130_fd_pr__pnp_05v5_W3p40l3p40</td>
+    </tr>
+</table>
+
+
+- Resistor
+<table>
+    <tr>
+        <td></td>
+        <td>RPOLYH</td>
+    </tr>
+    <tr>
+        <td>Sheet Resistance</td>
+        <td>~350&Omega;</td>
+    </tr>
+    <tr>
+        <td>Temperature Coefficient</td>
+        <td>2.5&Omega;/&deg;C</td>
+    </tr>
+    <tr>
+        <td>Bin Width</td>
+        <td>0.35&mu;, 0.69&mu;, 1.41&mu;, 5.73&mu;</td>
+    </tr>
+    <tr>
+        <td>Name of Model</td>
+        <td>sky130_fd_pr__res_high_po</td>
+    </tr>
+</table>
 
 # Circuit
 ![Circuit](assets/circuit.png)
